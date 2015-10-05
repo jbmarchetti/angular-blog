@@ -1,0 +1,24 @@
+{
+	"name": "angular-blog",
+	"version": "1.0.0",
+	"authors": [
+		"marchetti.jb@gmail.com"
+	],
+	"description": "AngularJS Blog",
+	"keywords": [
+		""
+	],
+	"license": "MIT",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"angular":"~1.2.0"
+	},
+	"devDependencies": {
+	}
+}
