@@ -89,7 +89,7 @@ module.exports = function(grunt) {
 			}
 		},
 		ngtemplates: {
-			'angular-my-directives': {
+			'jbm.blog': {
 				src:      'templates/**/*.html',
 				dest:     'dist/template.js'
 			}
