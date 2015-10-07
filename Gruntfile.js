@@ -84,25 +84,28 @@ module.exports = function(grunt) {
 					src:    'src/*.js',
 					dest:   'dist/blog.min.js'
 				}
-			}/*,
+			}	/*,
 			karma: {
-				unit: {
-					configFile: publicPathRelativeRoot+'config/karma.conf.js',
-					singleRun: true,
-					browsers: ['PhantomJS']
-				}
-			}*/
-		});
+			unit: {
+			configFile: publicPathRelativeRoot+'config/karma.conf.js',
+			singleRun: true,
+			browsers: ['PhantomJS']
+		}
+	}*/
+});
 
+/**
+register/define grunt tasks
+@toc 6.
+*/
+// Default task(s).
+grunt.registerTask('default',
+[
+	'jshint:beforeconcatQ',
+	'uglify:build'
+]);
 
-		/**
-		register/define grunt tasks
-		@toc 6.
-		*/
-		// Default task(s).
-		grunt.registerTask('default', ['jshint:beforeconcatQ', 'uglify:build']);
-
-	}
-	init({});		//initialize here for defaults (init may be called again later within a task)
+}
+init({});		//initialize here for defaults (init may be called again later within a task)
 
 };

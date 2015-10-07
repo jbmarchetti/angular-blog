@@ -15,7 +15,7 @@ angular
     .state('main.blog.index', {
       //abstract:true,
       controller:   'BlogIndexCtrl',
-      templateUrl:  'src/index.html',
+      templateUrl:  'index.html',
       url:          ''
     })
     ;
