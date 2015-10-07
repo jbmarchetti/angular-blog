@@ -1,6 +1,7 @@
 {
-	"name": "angular-blog-demo",
-	"version": "0.0.0",
+	"name": "angular-blog",
+	"version": "0.0.1",
+	 "main": "dist/blog.min.js",
 	"authors": [
 		"marchetti.jb@gmail.com"
 	],
@@ -16,10 +17,6 @@
 		"tests"
 	],
 	"dependencies": {
-		"angular":"~1.2.0",
-		"angular-sanitize":"~1.2.0",
-		"angular-route":"~1.2.0",
-		"angular-touch":"~1.2.0"
 	},
 	"devDependencies": {
 	}
