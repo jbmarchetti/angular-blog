@@ -6,4 +6,7 @@ angular.module('jbm.blog')
 .controller('BlogIndexCtrl', function () {
   console.log ('index');
 })
+.controller('BlogShowCtrl', function () {
+  console.log ('show');
+})
 ;

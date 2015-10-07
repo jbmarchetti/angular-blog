@@ -5,28 +5,22 @@ angular
 .config([
   '$stateProvider',
   function($stateProvider) {
-
-
-    var scripts = document.getElementsByTagName("script");
-   var currentScriptPath = scripts[scripts.length-1].src;
-   console.log("currentScriptPath:"+currentScriptPath);
-   var baseUrl = currentScriptPath.substring(0, currentScriptPath.lastIndexOf('/') + 1);
-   console.log("QCRIPTS baseUrl:"+baseUrl);
-
-
-
     $stateProvider
     .state('main.blog', {
-      //abstract:true,
       controller:   'BlogCtrl',
       url:          '/blog',
+      templateUrl:  'template/layout.html',
       abstract: true
     })
     .state('main.blog.index', {
-      //abstract:true,
       controller:   'BlogIndexCtrl',
-      templateUrl:  baseUrl+'index.html',
+      templateUrl:  'template/index.html',
       url:          ''
+    })
+    .state('main.blog.show', {
+      controller:   'BlogShowCtrl',
+      templateUrl:  'template/show.html',
+      url:          ':slug'
     })
     ;
   }
