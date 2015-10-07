@@ -9,6 +9,7 @@
     "angular-template-inline-js": "^0.1.6",
     "express": "~3.4.4",
     "grunt": "~0.4.1",
+    "grunt-angular-templates": "^0.5.7",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-jshint": "~0.7.0",
     "grunt-contrib-uglify": "~0.2.5"
