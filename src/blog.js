@@ -6,11 +6,17 @@ angular
   '$stateProvider',
   function($stateProvider) {
     $stateProvider
-    .state('blog', {
+    .state('main.blog', {
       //abstract:true,
       controller:   'BlogCtrl',
-      templateUrl:  'index.html',
-      url:          '/blog'
+      url:          '/blog',
+      abstract: true
+    })
+    .state('main.blog.index', {
+      //abstract:true,
+      controller:   'BlogIndexCtrl',
+      templateUrl:  'src/index.html',
+      url:          ''
     })
     ;
   }
