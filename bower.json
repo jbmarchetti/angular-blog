@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": [
     "dist/blog.min.js",
-    "dist/style.css"
+    "dist/blog.min.css"
   ],
   "authors": [
     "marchetti.jb@gmail.com"
