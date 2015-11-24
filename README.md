@@ -17,7 +17,7 @@ Add a blog to your site.
 ## Install
 1. download the files
 	1. Bower
-		1. add `"angular-blog": "latest"` to your `bower.json` file then run `bower install` OR run `bower install angular-blog`
+		1. add `"jbm.angular-blog": "latest"` to your `bower.json` file then run `bower install` OR run `bower install jbm.angular-blog`
 2. include the files in your app
 	1. `blog.min.js`
 	2. `blog.min.css`
