@@ -1,5 +1,5 @@
 {
-  "name": "angular-blog",
+  "name": "jbm.angular-blog",
   "version": "0.0.1",
   "main": [
     "dist/blog.min.js",
