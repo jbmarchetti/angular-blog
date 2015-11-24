@@ -1,23 +1,27 @@
 {
-	"name": "angular-blog",
-	"version": "0.0.1",
-	 "main": "dist/blog.min.js",
-	"authors": [
-		"marchetti.jb@gmail.com"
-	],
-	"description": "Demo",
-	"keywords": [
-	],
-	"license": "MIT",
-	"ignore": [
-		"**/.*",
-		"node_modules",
-		"bower_components",
-		"test",
-		"tests"
-	],
-	"dependencies": {
-	},
-	"devDependencies": {
-	}
+  "name": "angular-blog",
+  "version": "0.0.1",
+  "main": [
+    "dist/blog.min.js",
+    "dist/style.css"
+  ],
+  "authors": [
+    "marchetti.jb@gmail.com"
+  ],
+  "description": "Angular Blog",
+  "keywords": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-breadcrumb": "~0.4.1",
+    "angular-ui-router": "~0.2.15",
+    "jqcloud2": "~2.0.1"
+  },
+  "devDependencies": {}
 }

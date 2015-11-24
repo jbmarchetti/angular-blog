@@ -1,17 +1,18 @@
-# AngularJS Blog
+# JBM AngularJS Blog
 
-[TODO - brief summary]
+Add a blog to your site.
 
-## Demo
-http://jbmarchetti.github.io/angular-blog/
+1. Routes added
+	1. /blog
+	2. /blog/tag/:tag
+	3. /blog/:slug
 
-## Dependencies
-- required:
-	[TODO]
-- optional
-	[TODO]
 
-See `bower.json` and `index.html` in the `gh-pages` branch for a full list / more details
+2. Rest api methods used (loopback logic):
+	1. Get all posts: /api/posts
+	2. Get one post by slug: /api/posts/findOne?filter={'where':{'slug':'my-article1'}}
+	3. Get posts by tag: /api/posts?filter={'where': {'tags.value': 'tag1'}}
+
 
 ## Install
 1. download the files
@@ -19,32 +20,16 @@ See `bower.json` and `index.html` in the `gh-pages` branch for a full list / mor
 		1. add `"angular-blog": "latest"` to your `bower.json` file then run `bower install` OR run `bower install angular-blog`
 2. include the files in your app
 	1. `blog.min.js`
-3. include the module in angular (i.e. in `app.js`) - `jbmarchetti.angular-blog`
-
-See the `gh-pages` branch, files `bower.json` and `index.html` for a full example.
-
-
-## Documentation
-See the `blog.js` file top comments for usage examples and documentation
-https://github.com/jbmarchetti/angular-blog/blob/master/blog.js
+	2. `blog.min.css`
+3. include the module in angular (i.e. in `app.js`) - `jbm.angular-blog`
 
 
-## Development
+## TO-DO
 
-1. `git checkout gh-pages`
-	1. run `npm install && bower install`
-	2. write your code then run `grunt`
-	3. git commit your changes
-2. copy over core files (.js and .css/.less for directives) to master branch
-	1. `git checkout master`
-	2. `git checkout gh-pages blog.js blog.min.js blog.less blog.css blog.min.css`
-3. update README, CHANGELOG, bower.json, and do any other final polishing to prepare for publishing
-	1. git commit changes
-	2. git tag with the version number, i.e. `git tag v1.0.0`
-4. create github repo and push
-	1. [if remote does not already exist or is incorrect] `git remote add origin [github url]`
-	2. `git push origin master --tags` (want to push master branch first so it is the default on github)
-	3. `git checkout gh-pages`
-	4. `git push origin gh-pages`
-5. (optional) register bower component
-	1. `bower register angular-blog [git repo url]`
+1. Add Provider for Api endpoints configuration
+2. Add  style configuration
+	1. Tags
+	2. Sidebar
+	3. Posts
+3. Add angular-translate
+4. ....

@@ -20,6 +20,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-angular-templates');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-clean');
 	/**
 	Function that wraps everything to allow dynamically setting/changing grunt options and config later by grunt task. This init function is called once immediately (for using the default grunt options, config, and setup) and then may be called again AFTER updating grunt (command line) options.
 	@toc 3.
@@ -39,85 +42,91 @@ module.exports = function(grunt) {
 					src: ['dist/all.min.js', 'dist/template.js'],
 					dest: 'dist/blog.min.js',
 				},
-		},
-		jshint: {
-			options: {
-				//force:          true,
-				globalstrict:   true,
-				//sub:            true,
-				node: true,
-				loopfunc: true,
-				browser:        true,
-				devel:          true,
-				globals: {
-					angular:    false,
-					$:          false,
-					moment:		false,
-					Pikaday: false,
-					module: false,
-					forge: false
-				}
 			},
-			beforeconcat:   {
+			jshint: {
 				options: {
-					force:	false,
-					ignores: ['**.min.js']
+					//force:          true,
+					globalstrict:   true,
+					//sub:            true,
+					node: true,
+					loopfunc: true,
+					browser:        true,
+					devel:          true,
+					globals: {
+						angular:    false,
+						$:          false,
+						moment:		false,
+						Pikaday: false,
+						module: false,
+						forge: false
+					}
 				},
-				files: {
-					src: []
+				beforeconcat:   {
+					options: {
+						force:	false,
+						ignores: ['**.min.js']
+					},
+					files: {
+						src: []
+					}
+				},
+				//quick version - will not fail entire grunt process if there are lint errors
+				beforeconcatQ:   {
+					options: {
+						force:	true,
+						ignores: ['**.min.js']
+					},
+					files: {
+						src: ['**.js']
+					}
 				}
 			},
-			//quick version - will not fail entire grunt process if there are lint errors
-			beforeconcatQ:   {
+			uglify: {
 				options: {
-					force:	true,
-					ignores: ['**.min.js']
+					mangle: false
 				},
-				files: {
-					src: ['**.js']
+				build: {
+					files:  {},
+					src:    ['client/*.js', '/tmp/templates.js'],
+					dest:   'dist/all.min.js'
 				}
-			}
-		},
-		uglify: {
-			options: {
-				mangle: false
 			},
-			build: {
-				files:  {},
-				src:    ['src/*.js', '/tmp/templates.js'],
-				dest:   'dist/all.min.js'
-			}
-		},
-		ngtemplates: {
-			'jbm.blog': {
-				src:      'templates/**/*.html',
-				dest:     'dist/template.js'
-			}
-		}
-		/*,
-		karma: {
-		unit: {
-		configFile: publicPathRelativeRoot+'config/karma.conf.js',
-		singleRun: true,
-		browsers: ['PhantomJS']
+			ngtemplates: {
+				'jbm.angular-blog': {
+					src:      'client/views/**/*.html',
+					dest:     'dist/template.js'
+				}
+			},
+			cssmin: {
+				target: {
+					files: {
+						'dist/blog.min.css': ['client/styles/style.css']
+					}
+				}
+			},
+			clean: {
+				dist: ["dist/*"],
+				finish: ["dist/*.js", "!dist/blog.min.js"]
+			},
+		});
+
+		/**
+		register/define grunt tasks
+		@toc 6.
+		*/
+		// Default task(s).
+		grunt.registerTask('default',
+		[
+			'clean:dist',
+			'jshint:beforeconcatQ',
+			'ngtemplates',
+			'uglify:build',
+			'concat',
+			'cssmin',
+			'clean:finish'
+		]);
+
 	}
-}*/
-});
-
-/**
-register/define grunt tasks
-@toc 6.
-*/
-// Default task(s).
-grunt.registerTask('default',
-[
-	'jshint:beforeconcatQ',
-	'ngtemplates',
-	'uglify:build',
-	'concat'
-]);
-
-}
-init({});		//initialize here for defaults (init may be called again later within a task)
+	init({});		//initialize here for defaults (init may be called again later within a task)
 
 };

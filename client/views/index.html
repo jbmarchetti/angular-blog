@@ -1,0 +1,10 @@
+<h1>Blog <span ng-if='tag'>- {{tag}}</span></h1>
+
+<div infinite-scroll='remoteIS.nextPage()' infinite-scroll-disabled='remoteIS.busy' infinite-scroll-distance='1' >
+  <div ng-repeat="post in remoteIS.items track by $index">
+    <jbm-blog-post-sm post='post'></jbm-blog-post-sm>
+    <div class="clearfix margin-bottom-20"><hr></div>
+  </div>
+  <div style='clear: both;'></div>
+  <div class='alert alert-info text-center' ng-show='remoteIS.busy'>Chargement des données...</div>
+</div>

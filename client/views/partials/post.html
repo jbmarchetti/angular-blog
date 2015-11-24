@@ -1,0 +1,12 @@
+<div class="news-v3 margin-bottom-30">
+  <gridfs-img src='post.image.normal' ng-title="post.title" class="img-responsive full-widt"></gridfs-img>
+  <div class="news-v3-in">
+    <ul class="list-inline posted-info">
+      <!-- <li>In <a href="#">Design</a></li> -->
+      <li>Posté le {{post.created_at | date : 'd MMM y'}}</li>
+    </ul>
+    <h2><a ui-sref='main.blog.show_post({slug:post.slug})'>{{post.title}}</a></h2>
+    <p ng-bind-html="post.content"></p>
+
+  </div>
+</div>
